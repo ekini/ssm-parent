@@ -123,6 +123,9 @@ func init() {
 	rootCmd.PersistentFlags().BoolP("recursive", "r", false, "Walk through the provided SSM paths recursively.")
 	rootCmd.PersistentFlags().BoolP("strict", "s", false, "Strict mode. Fail if found less parameters than number of names.")
 
+	viper.SetEnvPrefix("SSM_PARENT")
+	viper.AutomaticEnv()
+
 	for _, err := range []error{
 		viper.BindPFlag("debug", rootCmd.PersistentFlags().Lookup("debug")),
 		viper.BindPFlag("expand", rootCmd.PersistentFlags().Lookup("expand")),

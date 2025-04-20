@@ -21,24 +21,26 @@ var runCmd = &cobra.Command{
 	Run: func(cobraCmd *cobra.Command, args []string) {
 		var cmdArgs []string
 
-		parameters, err := ssm.GetParameters(
-			viper.GetStringSlice("names"),
-			viper.GetStringSlice("paths"),
-			viper.GetStringSlice("plain-names"),
-			viper.GetStringSlice("plain-paths"),
-			transformationsList,
-			viper.GetBool("expand"),
-			viper.GetBool("strict"),
-			viper.GetBool("recursive"),
-			viper.GetBool("expand-names"),
-			viper.GetBool("expand-paths"),
-			viper.GetStringSlice("expand-values"),
-		)
-		if err != nil {
-			log.WithError(err).Fatal("Can't get parameters")
-		}
-		for key, value := range parameters {
-			os.Setenv(key, value)
+		if !viper.GetBool("disable") {
+			parameters, err := ssm.GetParameters(
+				viper.GetStringSlice("names"),
+				viper.GetStringSlice("paths"),
+				viper.GetStringSlice("plain-names"),
+				viper.GetStringSlice("plain-paths"),
+				transformationsList,
+				viper.GetBool("expand"),
+				viper.GetBool("strict"),
+				viper.GetBool("recursive"),
+				viper.GetBool("expand-names"),
+				viper.GetBool("expand-paths"),
+				viper.GetStringSlice("expand-values"),
+			)
+			if err != nil {
+				log.WithError(err).Fatal("Can't get parameters")
+			}
+			for key, value := range parameters {
+				os.Setenv(key, value)
+			}
 		}
 
 		command, err := exec.LookPath(args[0])
@@ -62,5 +64,11 @@ var runCmd = &cobra.Command{
 }
 
 func init() {
+	runCmd.PersistentFlags().BoolP("disable", "", false, "Disable SSM Parent fetches/env modifications. Just run the cmd.")
+	err := viper.BindPFlag("disable", runCmd.PersistentFlags().Lookup("disable"))
+	if err != nil {
+		log.WithError(err).Fatalf("can't bind flags")
+	}
+
 	rootCmd.AddCommand(runCmd)
 }

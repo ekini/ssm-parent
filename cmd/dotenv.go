@@ -57,5 +57,4 @@ var dotenvCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(dotenvCmd)
-
 }
