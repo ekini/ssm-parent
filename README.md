@@ -195,7 +195,12 @@ This project uses `go mod` as a dependency manager. Go v.1.13 was used.
 ```
     $git clone https://github.com/springload/ssm-parent.git
     $go build
-    # (after some hacking)
-    $git tag vXXX && git push && git push --tags
-    $goreleaser # to create a new release
 ```
+
+### How to release
+
+Releases are cut by [release-please](https://github.com/googleapis/release-please-action).
+Use [Conventional Commits](https://www.conventionalcommits.org/) (`fix:`, `feat:`,
+`feat!:`/`BREAKING CHANGE:`) on `main`; release-please keeps a release PR up to date with
+the next version and changelog. Merging that PR tags the release, and GoReleaser and the
+Docker image build attach to it automatically.

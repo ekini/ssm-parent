@@ -1,4 +1,10 @@
 # .goreleaser.yml
+version: 2
+
+# release-please creates the release and its notes; only add artifacts to it
+release:
+  mode: keep-existing
+
 builds:
   - binary: ssm-parent
     env:
