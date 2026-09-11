@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/go-multierror v0.0.0-20171204182908-b7773ae21874
 	github.com/imdario/mergo v0.3.8
 	github.com/joho/godotenv v1.3.0
-	github.com/mitchellh/mapstructure v1.1.2
+	github.com/mitchellh/mapstructure v1.5.0
 	github.com/spf13/cobra v0.0.2
 	github.com/spf13/viper v1.5.0
 )
