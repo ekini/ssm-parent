@@ -6,7 +6,7 @@ require (
 	github.com/buildkite/interpolate v0.0.0-20180215132703-c1c376f870d2
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/imdario/mergo v0.3.8
-	github.com/joho/godotenv v1.3.0
+	github.com/joho/godotenv v1.5.1
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/spf13/cobra v0.0.2
 	github.com/spf13/viper v1.5.0
