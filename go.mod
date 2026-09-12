@@ -4,7 +4,7 @@ require (
 	github.com/apex/log v1.9.0
 	github.com/aws/aws-sdk-go v1.42.38
 	github.com/buildkite/interpolate v0.0.0-20180215132703-c1c376f870d2
-	github.com/hashicorp/go-multierror v0.0.0-20171204182908-b7773ae21874
+	github.com/hashicorp/go-multierror v1.1.1
 	github.com/imdario/mergo v0.3.8
 	github.com/joho/godotenv v1.3.0
 	github.com/mitchellh/mapstructure v1.5.0
@@ -14,7 +14,7 @@ require (
 
 require (
 	github.com/fsnotify/fsnotify v1.4.7 // indirect
-	github.com/hashicorp/errwrap v0.0.0-20141028054710-7554cd9344ce // indirect
+	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
