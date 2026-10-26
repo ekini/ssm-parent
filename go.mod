@@ -3,7 +3,7 @@ module github.com/springload/ssm-parent
 require (
 	github.com/apex/log v1.9.0
 	github.com/aws/aws-sdk-go v1.42.38
-	github.com/buildkite/interpolate v0.0.0-20180215132703-c1c376f870d2
+	github.com/buildkite/interpolate v0.1.5
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/imdario/mergo v0.3.8
 	github.com/joho/godotenv v1.3.0
